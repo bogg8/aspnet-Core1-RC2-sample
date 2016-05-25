@@ -1,0 +1,29 @@
+﻿@model Restaurant
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h1>Create</h1>
+@using (Html.BeginForm())
+{
+    <div>
+        @*@Html.LabelFor(x => x.Name)*@
+        <label asp-for="Name"></label>
+        @*@Html.TextBoxFor(x => x.Name)*@
+        <input asp-for="Name" />
+        @*@Html.ValidationMessageFor(x => x.Name)*@
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        @*@Html.LabelFor(x => x.Cuisine)*@
+        <label asp-for="Cuisine"></label>
+        @*@Html.DropDownListFor(x => x.Cuisine, Html.GetEnumSelectList(typeof(CuisineType)))*@
+        <select asp-for="Cuisine" asp-items="@Html.GetEnumSelectList(typeof(CuisineType))"></select>
+        @*@Html.ValidationMessageFor(x => x.Cuisine)*@
+        <span asp-validation-for="Cuisine"></span>
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+}
